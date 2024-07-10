@@ -1,0 +1,129 @@
+@import "sass.scss";
+
+.navbar-header {
+  position: fixed;
+  z-index: 90;
+  height: 60px;
+  width: 100%;
+  padding: 0 16px 0 316px;
+  box-shadow: 10px 10px 30px -30px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  .header-left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    .burgermenu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border: none;
+      background-color: inherit;
+      font-size: 1.75rem;
+      color: black;
+      border-radius: 100%;
+      &:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+  .navbar-items {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    .nav-item {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      .nav-btn {
+        font-size: 1.75rem;
+        margin-bottom: 0;
+        border: none;
+        background-color: inherit;
+      }
+      #user {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border: 2px solid grey;
+        border-radius: 100%;
+        object-fit: cover;
+        background-color: white;
+      }
+      .count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        color: white;
+        background-color: red;
+        border-radius: 100%;
+      }
+    }
+     .notify-nav {
+      position: relative;
+      .notify-dropdown {
+        position: absolute;
+        bottom: -400px;
+        width: 300px;
+        height: 350px;
+        border-radius: 8px;
+      }
+    } 
+    .message-nav {
+      position: relative;
+      .message-dropdown {
+        position: absolute;
+        bottom: -400px;
+        /* transform: translateX(-70%, -50%); */
+        width: 300px;
+        height: 350px;
+        border-radius: 8px;
+      }
+    }
+    .user-nav {
+      position: relative;
+      .user-dropdown {
+        position: absolute;
+        bottom: -400px;
+        /* transform: translateX(-70%, -50%); */
+        width: 300px;
+        height: 350px;
+        border-radius: 8px;
+      }
+    }
+    .settings-nav {
+      position: relative;
+      .settings-dropdown {
+        position: absolute;
+        bottom: -400px;
+        /* transform: translateX(-90%, -50%); */
+        width: 300px;
+        height: 350px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+/* UTILITIES */
+.show {
+  display: flex;
+}
+.hide {
+  display: none;
+}

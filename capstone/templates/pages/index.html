@@ -1,0 +1,41 @@
+{% load static %}
+{% load compress %}
+{% load bootstrap5 %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Talaba II IMSLM</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/globals.css' %}">
+    {% compress css %}
+        <link type="text/x-scss" href="{% static 'css/sass.scss' %}"  rel="stylesheet" media="screen">
+    {% endcompress %}
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+{% bootstrap_messages %}
+{% for msg in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Hello Barangay Associate! </strong> {{ msg }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% include 'pages/navbar.html' %}
+{% include 'pages/sidenav.html' %}
+{% block content %}
+{#home.html#}
+{% endblock %}
+<script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+<script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+<script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+</body>
+</html>

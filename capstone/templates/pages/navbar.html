@@ -1,0 +1,53 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+<header class="navbar-header">
+  <div class="header-left">
+    <button class="burgermenu">
+      <span class="fa-solid fa-bars"></span>
+    </button>
+  </div>
+  <div class="navbar-items">
+    <!-- NOTIFY SECTION -->
+    <div class="nav-item notify-nav">
+      <button class="nav-btn" id="notify">
+        <i class="fa-regular fa-bell"></i>
+      </button>
+      <p class="count">1</p>
+      <div class="notify-dropdown hide">
+				<div>{% include 'pages/notificationcard.html' %}</div>
+			</div>
+    </div>
+
+    <!-- MESSAGE SECTION -->
+    <div class="nav-item message-nav">
+      <button class="nav-btn" id="message">
+        <i class="fa-regular fa-envelope"></i>
+      </button>
+      <p class="count">1</p>
+      <div class="message-dropdown hide">
+				<div>{% include 'pages/messagecard.html' %}</div>
+			</div>
+    </div>
+
+    <!-- USER ICON SECTION -->
+    <div class="nav-item user-nav">
+      <img src="{{ user.profile_pic.url }}" alt="user profile pic" class="nav-btn" id="user" >
+      <div class="user-dropdown hide">
+				<div>{% include 'pages/usercard.html' %}</div>
+			</div>
+    </div>
+
+    <!-- SETTINGS SECTION -->
+    <div class="nav-item settings-nav">
+      <button class="nav-btn" id="settings">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <p class="count">1</p>
+      <div class="settings-dropdown hide">
+				<div>{% include 'pages/settingscard.html' %}</div>
+			</div>
+    </div>
+  </div>
+</header>
+
+<script src="{% static 'js/navbar.js' %}"></script>

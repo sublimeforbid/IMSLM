@@ -1,0 +1,91 @@
+{% load static %}
+{% load compress %}
+{% load bootstrap5 %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Talaba II IMSLM</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/globals.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin-login.css' %}">
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'css/sass.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    {% block head %}
+    {% endblock %}
+</head>
+{% block content %}
+{% for msg in messages %}
+{% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Hello Barangay Associate! </strong> {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% elif msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+	<strong>Hello Barangay Associate! </strong> {{ msg }}
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% else %}
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+	<strong>Hello Barangay Associate! </strong> {{ msg }}
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% endfor %}
+<body class="bg-light">
+    <div class="admin-login-container">
+		<div class="ads">
+			<img src="{% static 'media/nature.jpg' %}" alt="nature" class="">
+			<p class="ads-text">Be part of Barangay Talaba II</p>
+		</div>
+		<div class="login-content">
+			<header class="">LOGIN NOW</header>
+			<form action="" method="POST">
+				{% csrf_token %}
+				<!-- Form Start -->
+				<div class="input-container">
+					<label for="username" class="">
+						<i class="fa-regular fa-user"></i>
+						<p>Username</p>
+					</label>
+					<input type="text" id="username" class="" placeholder="Enter Username" name="username" />
+				</div>
+				<div class="input-container">
+					<label for="password" class="">
+						<i class="fa-solid fa-lock"></i>
+						<p>Password</p>
+					</label>
+					<input type="password" id="password" class="" placeholder="Enter Password" name="password" />
+				</div>
+				<button type="submit" class="login-btn btn">LOGIN</button>
+				<hr>
+				<div class="footer">
+					<p class="">Once you've enter your Barangay Profile by Clicking 
+						<strong>LOGIN</strong>. You agree to our <a href="#">Terms and Conditions
+						</a> and <a href="#">Privacy Policy</a>
+					</p>
+					<p class="to-signup">
+						Don't have an Account ? <a href="{% url 'adminregister_page' %}"> SIGN UP HERE </a>
+					</p>
+				</div>
+			</form>
+			<!-- Form Close -->
+		</div>
+    </div>
+    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+</body>
+{% endblock %}
+
+</html>

@@ -1,0 +1,179 @@
+{% load static %}
+{% load compress %}
+{% load bootstrap5 %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Talaba II IMSLM</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/globals.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin-register.css' %}">
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'css/sass.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    {% block head %}
+    {% endblock %}
+</head>
+{% block content %}
+{% for msg in messages %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Hello Barangay Associate! </strong> {{ msg }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<body class="bg-light">
+    <div class="admin-register-container">
+        <header class="">
+            <h2 class="">Sign Up Now</h2>
+            <p class="">It's Free and takes a minute</p>
+        </header>
+        <!-- Form Start -->
+        <form id="adminregister" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="all-inputs">
+                <div class="input-container">
+                    <label for="first-name">
+                        <i class="fa fa-user"></i>
+                        <p>First Name</p>
+                    </label>
+                    <input type="text" class="form-field" id="first-name" placeholder="First Name" name="first_name"
+                        value="{{ first_name }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="middle-name">
+                        <i class="fa fa-user"></i>
+                        <p>Middle Initial</p>
+                    </label>
+                    <input type="text" class="form-field" id="middle-name" placeholder="Middle Initial"
+                        name="middle_name" value="{{ middle_name }}" />
+                </div>
+                <div class="input-container">
+                    <label for="last-name">
+                        <i class="fa fa-user"></i>
+                        <p>Last Name</p>
+                    </label>
+                    <input type="text" id="last-name" class="form-field" placeholder="Last Name" name="last_name"
+                        value="{{ last_name }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="profile">
+                        <i class="fa fa-camera"></i>
+                        <p>Profile Picture</p>
+                    </label>
+                    <input type="file" id="profile" class="profile" placeholder="Profile" name="profile" name="profile"
+                        value="{{ profile }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="barangay-position">
+                        <i class="fa fa-ranking-star"></i>
+                        <p>Barangay Position</p>
+                    </label>
+                    <input type="text" class="form-field" id="barangay-position" placeholder="Barangay Position"
+                        name="barangay_position" value="{{ barangay_position }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="phone-number">
+                        <i class="fa fa-phone"></i>
+                        <p>Phone Number</p>
+                    </label>
+                    <input type="number" id="phone-number" placeholder="Phone Number" name="phonenumber"
+                        value="{{ phonenumber }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="office-hours-weekdays">
+                        <i class="fa fa-calendar-days"></i>
+                        <p>Office Hours Weekdays</p>
+                    </label>
+                    <input type="datetime-local" id="office-hours-weekdays" placeholder="Office Hours Weekdays"
+                        name="office_hours_weekdays" value="{{ office_hours_weekdays }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="office-hours-weekends">
+                        <i class="fa fa-calendar-days"></i>
+                        <p>Office Hours Weekends</p>
+                    </label>
+                    <input type="datetime-local" id="office-hours-weekdends" placeholder="Office Hours Weekends"
+                        name="office_hours_weekends" value="{{ office_hours_weekends }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="responsibilities">
+                        <i class="fa fa-list-check"></i>
+                        <p>Responsibilities</p>
+                    </label>
+                    <input type="text" class="form-field" id="responsibilities" placeholder="Responsibilities"
+                        name="responsibilities" value="{{ responsibilities }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="about">
+                        <i class="fa fa-address-card"></i>
+                        <p>About</p>
+                    </label>
+                    <input type="text" class="form-field" id="about" placeholder="About" name="about"
+                        value="{{ about }}" />
+                </div>
+                <div class="input-container">
+                    <label for="email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>Email</p>
+                    </label>
+                    <input type="email" id="email" placeholder="Enter Email" name="email" value="{{ email }}"
+                        required />
+                </div>
+                <div class="input-container">
+                    <label for="username">
+                        <i class="fa-regular fa-user"></i>
+                        <p>Username</p>
+                    </label>
+                    <input type="text" class="form-field" id="username" placeholder="Enter Username" name="username"
+                        value="{{ username }}" required />
+                </div>
+                <div class="input-container">
+                    <label for="password">
+                        <i class="fa-solid fa-lock"></i>
+                        <p>Password</p>
+                    </label>
+                    <input type="password" class="form-field" id="password" placeholder="Enter Password"
+                        name="password1" required />
+                </div>
+                <div class="input-container">
+                    <label for="confirm-password">
+                        <i class="fa-solid fa-lock"></i>
+                        <p>Confirm Password</p>
+                    </label>
+                    <input type="password" class="form-field" id="confirm-password" placeholder="Confirm Password"
+                        name="password2" required />
+                </div>
+            </div>
+            <button type="submit" class="signup-btn btn">SIGN UP</button>
+            <hr>
+            <div class="footer">
+                <p>When you register your Barangay Profile by Clicking <strong>SIGN UP</strong>.
+                    You agree to our <a href="#">Terms and Condition
+                    </a> and <a href="#">Privacy Policy</a>
+                </p>
+                <p class="to-login">
+                    Already have an Account ? <a href="{% url 'adminlogin_page' %}"> LOGIN HERE </a>
+                </p>
+            </div>
+        </form>
+        <!-- Form Close -->
+    </div>
+
+    <script src="{% static 'js/adminregister.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+    <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+</body>
+{% endblock %}
+
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!-- this is the card component -->
+<!-- this can be reusable and can be customized with its own css file -->
+<link rel="stylesheet" href="{% static 'css/usercard.css' %}" />
+<div class="card">
+  <div class="profile-card">
+    <div class="image">
+      <img src="{{ user.profile_pic.url }}" alt="" class="profile-img">
+    </div>
+    <div class="text-data">
+      <span class="barangayposition">{{ user.barangay_position }}</span>
+      <span class="barangayname">{{ user.first_name}} {{ user.middle_name }}. {{ user.last_name }}</span>
+    </div>
+    <!-- <div class="media-buttons">
+      <a href="#" style="background: #4267b2;" class="link facebook"><i class="fa-solid fa-facebook"></i></a>
+      <a href="#" style="background: #ff0000;" class="link youtube"><i class="fa-solid fa-youtube"></i></a>
+    </div> -->
+    <div class="userbuttons">
+      <button href="{% url 'profile_page' %}" class="userprofilebutton">Edit Profile</button>
+    </div>
+  </div>
+</div>
+

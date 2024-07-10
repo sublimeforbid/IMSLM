@@ -1,0 +1,90 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/content.css' %}" />
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+<div class="content">
+  <form action="" method="post" enctype="multipart/form-data" class="profile-container">
+    {% csrf_token %}
+    {% for msg in messages %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong>Hello Barangay Associate! </strong> {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div class="user-profile">
+      <img src="{{ user.profile_pic.url }}" alt="user profile pic" class="user-image">
+      <h1 class="username">
+        {{ user.username }}
+      </h1>
+      <p class="user-fullname">
+        {{ user.first_name}} {{ user.middle_name }}. {{ user.last_name }}
+      </p>
+    </div>
+    <div class="user-details">
+      <div class="user-detail ">
+        <h5 class="detail-label">Barangay Official:</h5>
+        <input type="text" class="actual-detail" value="{{ user.first_name }}" name="">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">Email:</h5>
+        <input class="actual-detail" value="{{ user.email }}">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">Position:</h5>
+        <input type="text" class="actual-detail" value="{{ user.barangay_position }}" name="barangay_position">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">Phone Number:</h5>
+        <input type="number" class="actual-detail" value="{{ user.phone }}" name="phonenumber">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">Office Hours Weekdays:</h5>
+        <input type="datetime-local" class="actual-detail" value="{{ formatted_weekdays }}"
+          name="office_hours_weekdays">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">Office Hours Weekends:</h5>
+        <input type="datetime-local" class="actual-detail" value="{{ formatted_weekends }}"
+          name="office_hours_weekends">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">Responsibilities:</h5>
+        <input type="text" class="actual-detail" value="{{ user.responsibilities }}" name="responsibilities">
+
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">About:</h5>
+        <input type="text" class="actual-detail" value="{{ user.about }}" name="about">
+        </input>
+      </div>
+      <hr>
+      <div class="user-detail">
+        <h5 class="detail-label">New Profile:</h5>
+        <input type="file" class="actual-detail" value="{{ user.profile.url }}" name="profile">
+      </div>
+    </div>
+    <button type="submit" class="edit-btn btn">UPDATE</button>
+  </form>
+</div>
+{% endblock %}

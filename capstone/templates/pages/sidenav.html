@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/sidenav.css' %}" />
+<div class="sidenav">
+  <div class="brand">BACOOR</div>
+  <div class="sidenav-items">
+      <a href="/" class="sidenav-item dashboard">
+        <i class="fa-solid fa-chart-simple"></i>
+        <p> Dashboard</p>
+      </a>
+      <a href="{% url 'profile_page' %}" class="sidenav-item dashboard">
+        <i class="fa-solid fa-user"></i>
+        <p> Profle</p>
+      </a>
+      <a href="{% url 'announcement_page' %}" class="sidenav-item dashboard">
+        <i class="fa-solid fa-bullhorn"></i>
+        <p> Announcement</p>
+      </a>
+      <a href="{% url 'market_page' %}" class="sidenav-item dashboard">
+        <i class="fa-solid fa-shop"></i>
+        <p> Market</p>
+      </a>
+      <a href="{% url 'reports_page' %}" class="sidenav-item dashboard">
+        <i class="fa-solid fa-note-sticky"></i>
+        <p> Reports</p>
+      </a>
+      <a id="logout" href="{% url 'log_out' %}" class="sidenav-item dashboard">
+        <i class="fa-solid fa-door-open"></i>
+        <p> LOG OUT</p>
+      </a>
+  </div>
+</div>
+<script src="{% static 'js/sidenav.js' %}"></script>

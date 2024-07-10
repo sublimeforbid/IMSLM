@@ -1,0 +1,78 @@
+{% extends 'pages/index.html' %} 
+{% load static %}
+{% block content %} 
+<link rel="stylesheet" href="{% static 'css/content.css' %}" />
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+<div class="content"> 
+  <div class="profile-container">
+      <div class="user-profile">
+        <img src="{{ user.profile_pic.url }}" alt="user profile pic" class="user-image">
+        <h1 class="username">
+          {{ user.username }} 
+        </h1>
+        <p class="user-fullname">
+          {{ user.first_name}} {{ user.middle_name }}. {{ user.last_name }}
+        </p>
+      </div>
+      <div class="user-details">
+        <div class="user-detail ">
+          <h5 class="detail-label">Barangay Official:</h5>
+          <div class="actual-detail">
+            {{ user.barangay_position }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">Email:</h5>
+          <div class="actual-detail">
+            <!-- {{ user}} -->
+            {{ user.email }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">Position:</h5>
+          <div class="actual-detail">
+            {{ user.barangay_position }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">Phone Number:</h5>
+          <div class="actual-detail">
+            {{ user.phone }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">Office Hours Weekdays:</h5>
+          <div class="actual-detail">
+            {{ user.office_hours_weekdays }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">Office Hours Weekends:</h5>
+          <div class="actual-detail">
+            {{ user.office_hours_weekdays }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">Responsibilities:</h5>
+          <div class="actual-detail">
+            {{ user.responsibilities }}
+          </div>
+        </div>
+        <hr>
+        <div class="user-detail">
+          <h5 class="detail-label">About:</h5>
+          <div class="actual-detail">
+            {{ user.about }}
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'updateProfile' %}" class="edit-btn btn">EDIT</a>
+  </div>
+</div>
+{% endblock %}

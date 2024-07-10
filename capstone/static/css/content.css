@@ -1,0 +1,8 @@
+.content {
+    position: relative;
+    padding: 70px 10px 10px 310px;
+    .cards {
+      display: flex;
+      gap: 20px;
+    }
+  }
