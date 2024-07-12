@@ -10,6 +10,7 @@ class BarangayUser(AbstractUser):
         upload_to='profile-pics/', default='profile-pics/tamago.png')
     barangay_position = models.CharField(max_length=100)
     phone = PhoneNumberField(null=False, blank=False, unique=True)
+    birthday = models.DateField(default='2000-01-01')
     office_hours_weekdays = models.DateTimeField(null=True)
     office_hours_weekends = models.DateTimeField(null=True)
     responsibilities = models.CharField(max_length=200)
